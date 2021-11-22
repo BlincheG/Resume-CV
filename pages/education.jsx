@@ -10,7 +10,7 @@ function education() {
       </PageTitle>
       <div>
         <Grid container>
-          <Grid item xs={12} sm={7}>
+          <Grid item xs={12}>
             <BlockTitle>
               <h3>Education</h3>
             </BlockTitle>
@@ -39,7 +39,7 @@ function education() {
       </div>
       <div>
         <Grid container>
-          <Grid item xs={12} sm={7}>
+          <Grid item xs={12}>
             <BlockTitle>
               <h3>FORMER EMPLOYERS</h3>
             </BlockTitle>
@@ -84,6 +84,8 @@ const EducationWrap = styled.div`
   background-position: center;
   background-position: 50% 50%;
   background-size: cover;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
   h2 {
     position: relative;
@@ -93,6 +95,10 @@ const EducationWrap = styled.div`
 
   h3 {
     font-size: 21px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 `
 
@@ -111,12 +117,12 @@ const TimeLineItem = styled.div`
   width: 100%;
   padding-bottom: 15px;
 
-  .left-item {
+  .left-part {
     width: 30%;
     display: table-cell;
     padding-right: 25px;
     min-height: 100%;
-    text-align: right;
+    text-align: center;
     vertical-align: top;
   }
 
