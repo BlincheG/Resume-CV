@@ -2,6 +2,7 @@ html,
 body {
   width: 100%;
   background-color: #04b4e0;
+  line-height: 1.65em;
 }
 
 a {
@@ -18,4 +19,8 @@ ul {
   margin: 0;
   padding: 0;
   font-family: poppins, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5 p, ol, li, p {
+  color: #eee;
 }

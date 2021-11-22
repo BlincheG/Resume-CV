@@ -5,13 +5,13 @@ import Header from './Header'
 function MainContainer({children}) {
   return (
     <Page>
-    <PageContent>
-      <Header />
-      <ContentArea>
-        {children}
-      </ContentArea>
-    </PageContent>
-  </Page>
+      <PageContent>
+        <Header />
+        <ContentArea>
+          {children}
+        </ContentArea>
+      </PageContent>
+    </Page>
   )
 }
 

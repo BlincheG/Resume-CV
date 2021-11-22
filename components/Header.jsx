@@ -15,7 +15,7 @@ function Header() {
       <MainMenu>
         <li><Link href="/"><ChangingLink> <HomeIcon/> </ChangingLink></Link></li>
         <li><Link href="/about"><ChangingLink> <InfoIcon/> </ChangingLink></Link></li>
-        <li><Link href="/"><ChangingLink> <SchoolIcon/> </ChangingLink></Link></li>
+        <li><Link href="/education"><ChangingLink> <SchoolIcon/> </ChangingLink></Link></li>
         <li><Link href="/"><ChangingLink> <WorkIcon/> </ChangingLink></Link></li>
       </MainMenu>
       <HeaderTitle>
