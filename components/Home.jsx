@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function index() {
+function Home() {
   return (
     <HomeSection>
       <HomeWrap>
@@ -16,7 +16,7 @@ function index() {
   )
 }
 
-export default index
+export default Home
 
 const HomeSection = styled.div`
   position: relative;
