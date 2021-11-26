@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
+import { useRouter } from 'next/router'
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TelegramIcon from '@mui/icons-material/Telegram';
@@ -10,13 +11,31 @@ import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 
 function Header() {
+  const router = useRouter();
+
   return (
     <HeaderWrap>
       <MainMenu>
-        <li><Link href="/"><ChangingLink> <HomeIcon/> </ChangingLink></Link></li>
-        <li><Link href="/about"><ChangingLink> <InfoIcon/> </ChangingLink></Link></li>
-        <li><Link href="/education"><ChangingLink> <SchoolIcon/> </ChangingLink></Link></li>
-        <li><Link href="/"><ChangingLink> <WorkIcon/> </ChangingLink></Link></li>
+        <li>
+          <Link href="/">
+            <ChangingLink className={router.pathname == '/' ? 'active' : ''}> <HomeIcon/> </ChangingLink>
+          </Link>
+        </li>
+        <li>
+          <Link href="/about">
+            <ChangingLink className={router.pathname == '/about' ? 'active' : ''}> <InfoIcon/> </ChangingLink>
+          </Link>
+        </li>
+        <li>
+          <Link href="/education">
+            <ChangingLink className={router.pathname == '/education' ? 'active' : ''}> <SchoolIcon/> </ChangingLink>
+          </Link>
+        </li>
+        <li>
+          <Link href="/">
+            <ChangingLink className={router.pathname == '/' ? 'active' : ''}> <WorkIcon/> </ChangingLink>
+          </Link>
+        </li>
       </MainMenu>
       <HeaderTitle>
         <HeaderPhoto>
@@ -148,4 +167,8 @@ const ChangingLink = styled.a`
   position: relative;
   color: #b5b6b7;
   display: block;
+
+  &.active {
+    color: #04b4e0;
+  }
 `

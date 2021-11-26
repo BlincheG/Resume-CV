@@ -63,6 +63,16 @@ function education() {
                 <p>Worked as a core developer/consultant in one of the biggest software companies in Kyrgyzstan. Given the outsourcing nature of the company types of projects varied greatly from regular CRUD web applications and browser extensions to more specific TV apps and proprietary software video players. Technologies used: javascript ES6, react, vue, angular, linux, git.</p>
               </div>
             </TimeLineItem>
+            <TimeLineItem>
+              <div className="left-part">
+                <h5>2021 - Now</h5>
+              </div>
+              <div className="divider"></div>
+              <div className="right-part">
+                <h4>Freelancer</h4>
+                <p>Frontend development</p>
+              </div>
+            </TimeLineItem>
           </Grid>
         </Grid>
       </div>
