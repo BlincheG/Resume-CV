@@ -110,6 +110,10 @@ const EducationWrap = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media (max-width: 1024px) {
+    border-radius: 0px;
+  }
 `
 
 const PageTitle = styled.div`

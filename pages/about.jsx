@@ -93,6 +93,10 @@ const AboutWrap = styled.div`
     font-size: 32px;
     z-index: 1;
   }
+
+  @media (max-width: 1024px) {
+    border-radius: 0px;
+  }
 `
 
 const PageTitle = styled.div`

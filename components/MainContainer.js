@@ -10,6 +10,10 @@ function MainContainer({children}) {
     setMobileHeader(mobileHeader => !mobileHeader)
   }
 
+  const clickMenu = () => {
+    setMobileHeader(false)
+  }
+
   const getWindowDimensions = () => {
     const { innerWidth: width } = window;
     
@@ -32,6 +36,7 @@ function MainContainer({children}) {
       <PageContent>
         <Header 
           checkOpenMenu={mobileHeader}
+          clickMenu={clickMenu}
         />
         <MenuToggle 
           openMenu={openMenu}

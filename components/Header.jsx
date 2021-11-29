@@ -33,20 +33,20 @@ function Header(props) {
       </HeaderTitle>
 
       <MainMenu>
-        <Link href="/">
-          <li>
+        <Link href="/" passHref>
+          <li onClick={props.clickMenu}>
             <ChangingLink className={router.pathname == '/' ? 'active' : ''}> <HomeIcon/> </ChangingLink>
             <span className={router.pathname == '/' ? 'active' : ''}>Home</span>
           </li>
         </Link>
         <Link href="/about">
-          <li>
+          <li onClick={props.clickMenu}>
             <ChangingLink className={router.pathname == '/about' ? 'active' : ''}> <InfoIcon/> </ChangingLink>
             <span className={router.pathname == '/about' ? 'active' : ''}>About Me</span>
           </li>
         </Link>
         <Link href="/education">
-          <li>
+          <li onClick={props.clickMenu}>
             <ChangingLink className={router.pathname == '/education' ? 'active' : ''}> <SchoolIcon/> </ChangingLink>
             <span className={router.pathname == '/education' ? 'active' : ''}>Education</span>
           </li>
@@ -159,7 +159,11 @@ const SocialLinks = styled.div`
     padding: 0;
     display: flex;
     justify-content: space-between;
-    width: 20%
+    width: 20%;
+
+  @media (max-width: 1024px) {
+    width: 25%;
+  }
   }
 
   li {
@@ -189,6 +193,10 @@ const CopyRight = styled.div`
   line-height: 14px;
   font-size: 12px;
   text-align: center;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `
 
 const MainMenu = styled.ul`
