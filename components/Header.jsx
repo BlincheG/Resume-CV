@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
@@ -10,36 +10,11 @@ import InfoIcon from '@mui/icons-material/Info';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 
-function Header() {
+function Header(props) {
   const router = useRouter();
 
   return (
-    <HeaderWrap>
-      <MainMenu>
-        <li>
-          <Link href="/">
-            <ChangingLink className={router.pathname == '/' ? 'active' : ''}> <HomeIcon/> </ChangingLink>
-          </Link>
-          <span>Home</span>
-        </li>
-        <li>
-          <Link href="/about">
-            <ChangingLink className={router.pathname == '/about' ? 'active' : ''}> <InfoIcon/> </ChangingLink>
-          </Link>
-          <span>About Me</span>
-        </li>
-        <li>
-          <Link href="/education">
-            <ChangingLink className={router.pathname == '/education' ? 'active' : ''}> <SchoolIcon/> </ChangingLink>
-          </Link>
-          <span>Education</span>
-        </li>
-        <li>
-          <Link href="/">
-            <ChangingLink className={router.pathname == '/' ? 'active' : ''}> <WorkIcon/> </ChangingLink>
-          </Link>
-        </li>
-      </MainMenu>
+    <HeaderWrap className={props.checkOpenMenu ? '' : 'mobile-menu-hide'}>
       <HeaderTitle>
         <HeaderPhoto>
           <Avatar />
@@ -49,13 +24,34 @@ function Header() {
         <SocialLinks>
           <ul>
             <li><a href="https://github.com/BlincheG" alt="Github"> <GitHubIcon /> </a></li>
-            <li><a href="" alt="Telegram"> <TelegramIcon /> </a></li>
+            <li><a href="https://t.me/blincheg" alt="Telegram"> <TelegramIcon /> </a></li>
           </ul>
         </SocialLinks>
         <CopyRight>
           © 2021 All rights reserved.
         </CopyRight>
       </HeaderTitle>
+
+      <MainMenu>
+        <Link href="/">
+          <li>
+            <ChangingLink className={router.pathname == '/' ? 'active' : ''}> <HomeIcon/> </ChangingLink>
+            <span className={router.pathname == '/' ? 'active' : ''}>Home</span>
+          </li>
+        </Link>
+        <Link href="/about">
+          <li>
+            <ChangingLink className={router.pathname == '/about' ? 'active' : ''}> <InfoIcon/> </ChangingLink>
+            <span className={router.pathname == '/about' ? 'active' : ''}>About Me</span>
+          </li>
+        </Link>
+        <Link href="/education">
+          <li>
+            <ChangingLink className={router.pathname == '/education' ? 'active' : ''}> <SchoolIcon/> </ChangingLink>
+            <span className={router.pathname == '/education' ? 'active' : ''}>Education</span>
+          </li>
+        </Link>
+      </MainMenu>
     </HeaderWrap>
   )
 }
@@ -72,6 +68,39 @@ const HeaderWrap = styled.div`
   overflow: auto;
   background-color: #444;
   border-radius: 32px;
+  width: 100%;
+
+  &.mobile-menu-hide {
+
+    @media (max-width: 1024px) {
+      width: 0;
+      right: 0;
+      margin-right: -100%;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    position: absolute;
+    width: 100%;
+    max-width: 330px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #444;
+    z-index: 100;
+    padding: 30px 30px 10px;
+    text-align: center;
+    opacity: 1;
+    visibility: visible;
+    overflow: auto;
+    transition: all .25s ease-in-out;
+  }
 `
 
 const HeaderTitle = styled.div`
@@ -84,6 +113,11 @@ const Title = styled.h2`
   color: #f5f5f5;
   margin: 5px 0 7px;
   line-height: 1.2em;
+
+  @media (max-width: 1024px) {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
 `
 
 const UnderTitle = styled.h4`
@@ -92,6 +126,10 @@ const UnderTitle = styled.h4`
   color: #bbb;
   margin: 5px 0;
   line-height: 1.2em;
+
+  @media (max-width: 1024px) {
+    font-size: 17px;
+  }
 `
 
 const HeaderPhoto = styled.div`
@@ -154,46 +192,52 @@ const CopyRight = styled.div`
 `
 
 const MainMenu = styled.ul`
-  position: absolute;
-  padding: 15px 0;
-  width: 70px;
-  right: -90px;
-  background-color: #444;
-  border-radius: 35px;
-  z-index: 999;
-  list-style: none;
-  top: 0;
-
-  li {
-    display: block;
-    position: relative;
-    transition: all .3s ease-in-out;
-
-    &:hover {
-      a {
-        color: #04b4e0;
-      }
-      
-      span {
-        right: 100%;
-        visibility: visible;
-        opacity: 1;
-      }
-    }
-
-    span {
-      position: absolute;
-      visibility: hidden;
-      opacity: 0;
-      color: #fff;
-      padding: 2px 10px;
-      background-color: #04b4e0;
-      white-space: nowrap;
-      right: 0;
-      top: -50%;
-      margin-top: 50%;
+  @media (min-width: 1025px) {
+    position: absolute;
+    padding: 15px 0;
+    width: 70px;
+    right: -90px;
+    background-color: #444;
+    border-radius: 35px;
+    z-index: 999;
+    list-style: none;
+    top: 0;
+  
+    li {
+      display: block;
+      position: relative;
       transition: all .3s ease-in-out;
-      z-index: 0;
+  
+      &:hover {
+        a {
+          color: #04b4e0;
+        }
+        
+        span {
+          right: 100%;
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+  
+      span {
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        color: #fff;
+        padding: 2px 10px;
+        background-color: #04b4e0;
+        white-space: nowrap;
+        right: 0;
+        top: -50%;
+        margin-top: 50%;
+        transition: all .3s ease-in-out;
+        z-index: 0;
+      }
+  }
+
+    @media (max-width: 1024px) {
+      margin: 30px 0;
     }
 
   }
@@ -205,6 +249,7 @@ const ChangingLink = styled.a`
   color: #b5b6b7;
   display: block;
   font-size: 32px;
+  cursor: pointer;
 
   &.active {
     color: #04b4e0;

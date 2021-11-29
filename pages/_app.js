@@ -13,7 +13,9 @@ function MyApp(props) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true)
+    window.addEventListener("load", function(){
+      setLoading(true);
+    });
   })
 
   return (

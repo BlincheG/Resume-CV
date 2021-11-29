@@ -1,8 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
 import Grid from '@mui/material/Grid';
+import AboutElement from '../components/AboutElement';
 
 function AboutMe() {
+  const datas = [
+    {
+      title: 'Date of birth',
+      value: '28.08.1994'
+    },
+    {
+      title: 'Residence',
+      value: 'Bishkek, Kyrgyzstan'
+    },
+    {
+      title: 'Email',
+      value: 'blinchegg@gmail.com'
+    },
+    {
+      title: 'Phone',
+      value: '+996 553 45 02 46'
+    },
+  ]
+
   return (
     <AboutWrap>
       <PageTitle>
@@ -14,31 +34,40 @@ function AboutMe() {
             <p>I am a punctual and motivated individual who is able to work in a busy environment and produce high standards of work. I am an excellent team worker and am able to take instructions from all levels and build up good working relationships with all colleagues. I am flexible, reliable and possess excellent time keeping skills.</p>
           </Grid>
           <Grid item xs={12} sm={5}>
-            <div>
+            <div style={{marginBottom: "100px"}}>
               <ul>
-                <AboutElement>
-                  <AboutTitle>Date of birth</AboutTitle>
-                  <AboutValue>28.08.1994</AboutValue>
-                </AboutElement>
-
-                <AboutElement>
-                  <AboutTitle>Residence</AboutTitle>
-                  <AboutValue>Bishkek, Kyrgyzstan</AboutValue>
-                </AboutElement>
-
-                <AboutElement>
-                  <AboutTitle>Email</AboutTitle>
-                  <AboutValue>blinchegg@gmail.com</AboutValue>
-                </AboutElement>
-
-                <AboutElement>
-                  <AboutTitle>Phone</AboutTitle>
-                  <AboutValue>+996 553 45 02 46</AboutValue>
-                </AboutElement>
+                {
+                  datas.map((data, index) => (
+                    <AboutElement 
+                      title={ data.title }
+                      value={ data.value }
+                      key={index}
+                    />
+                  ))
+                }
               </ul>
             </div>
           </Grid>
         </Grid>
+      </div>
+      <div>
+        <BlockTitle>Knowledges</BlockTitle>
+        <ul>
+          <KnowledgesItems>Javascript</KnowledgesItems>
+          <KnowledgesItems>React</KnowledgesItems>
+          <KnowledgesItems>Vue</KnowledgesItems>
+          <KnowledgesItems>Redux</KnowledgesItems>
+          <KnowledgesItems>Typescript</KnowledgesItems>
+          <KnowledgesItems>CSS</KnowledgesItems>
+          <KnowledgesItems>SASS</KnowledgesItems>
+          <KnowledgesItems>Styled Component</KnowledgesItems>
+          <KnowledgesItems>GIT</KnowledgesItems>
+          <KnowledgesItems>HTML</KnowledgesItems>
+          <KnowledgesItems>Firebase</KnowledgesItems>
+          <KnowledgesItems>Linux</KnowledgesItems>
+          <KnowledgesItems>Npm</KnowledgesItems>
+          <KnowledgesItems>Yarn</KnowledgesItems>
+        </ul>
       </div>
     </AboutWrap>
   )
@@ -70,27 +99,16 @@ const PageTitle = styled.div`
   margin-bottom: 30px;
 `
 
-const SectionContent = styled.div`
-
+const BlockTitle = styled.h3`
+  margin-bottom: 15px;
 `
-
-const AboutRow = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-`
-
-const AboutElement = styled.li`
-  margin-bottom: 10px;
-`
-
-const AboutTitle = styled.span`
-  color: #04b4e0;
-  margin-right: 5px;
-  font-weight: 600;
-`
-
-const AboutValue = styled.span`
-
+const KnowledgesItems = styled.li`
+  display: inline-block;
+  background-color: #04b4e0;
+  border-radius: 3px;
+  color: #fff;
+  padding: 1px 10px;
+  margin: 3px 2px;
+  font-size: 13px;
+  cursor: pointer;
 `

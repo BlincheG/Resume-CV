@@ -1,12 +1,42 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Header from './Header'
+import MenuToggle from './MenuToggle'
 
 function MainContainer({children}) {
+  const [ mobileHeader, setMobileHeader ] = useState(false)
+
+  const openMenu = () => {
+    setMobileHeader(mobileHeader => !mobileHeader)
+  }
+
+  const getWindowDimensions = () => {
+    const { innerWidth: width } = window;
+    
+    if (width < 1024) {
+      setMobileHeader(false);
+    }
+  }
+
+  useEffect(() => {
+    function handleResize() {
+      getWindowDimensions();
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <Page>
       <PageContent>
-        <Header />
+        <Header 
+          checkOpenMenu={mobileHeader}
+        />
+        <MenuToggle 
+          openMenu={openMenu}
+          checkOpenMenu={mobileHeader}
+        />
         <ContentArea>
           {children}
         </ContentArea>
@@ -24,6 +54,15 @@ const Page = styled.div`
   min-height: 100%;
   padding: 0 100px;
   overflow: hidden;
+
+  @media (max-width: 1280px) {
+    padding-left: 30px;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 0;
+    height: 100vh;
+  }
 `
 
 const PageContent = styled.div`
@@ -37,6 +76,12 @@ const PageContent = styled.div`
   background-color: #444;
   border-radius: 32px;
   position: relative;
+
+  @media (max-width: 1024px) {
+    border-radius: 0;
+    min-height: 100%;
+    margin: 0;
+  }
 `
 
 const ContentArea = styled.div`
@@ -46,4 +91,8 @@ const ContentArea = styled.div`
   width: 100%;
   height: 100%;
   max-width: calc(100% - 380px);
+
+  @media (max-width: 1024px) {
+    max-width: 100%;
+  }
 `

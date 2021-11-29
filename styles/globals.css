@@ -3,6 +3,8 @@ body {
   width: 100%;
   background-color: #04b4e0;
   line-height: 1.65em;
+  height: 100%;
+  min-height: 100%;
 }
 
 a {
@@ -25,7 +27,11 @@ h1, h2, h3, h4, h5 p, ol, li, p {
   color: #eee;
 }
 
-.loader-wrapper {
+.active {
+  color: #04b4e0;
+}
+
+/* .loader-wrapper {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -53,4 +59,4 @@ h1, h2, h3, h4, h5 p, ol, li, p {
   100% {
     transform: rotate(360deg);
   }
-}
+} */
