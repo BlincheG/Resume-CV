@@ -38,6 +38,10 @@ const HomeWrap = styled.section`
   background-position: center;
   background-position: 50% 50%;
   background-size: cover;
+
+  @media (max-width: 1024px) {
+    border-radius: 0;
+  }
 `
 
 const ContentCentered = styled.div`
@@ -60,6 +64,10 @@ const TitleBlock = styled.h2`
   line-height: 74px;
   margin: 0;
   text-align: center;
+
+  @media (max-width: 1024px) {
+    font-size: 38px;
+  }
 `
 
 const Paragraph = styled.p`
