@@ -20,16 +20,19 @@ function Header() {
           <Link href="/">
             <ChangingLink className={router.pathname == '/' ? 'active' : ''}> <HomeIcon/> </ChangingLink>
           </Link>
+          <span>Home</span>
         </li>
         <li>
           <Link href="/about">
             <ChangingLink className={router.pathname == '/about' ? 'active' : ''}> <InfoIcon/> </ChangingLink>
           </Link>
+          <span>About Me</span>
         </li>
         <li>
           <Link href="/education">
             <ChangingLink className={router.pathname == '/education' ? 'active' : ''}> <SchoolIcon/> </ChangingLink>
           </Link>
+          <span>Education</span>
         </li>
         <li>
           <Link href="/">
@@ -121,7 +124,7 @@ const SocialLinks = styled.div`
     width: 20%
   }
 
-  a {
+  li {
     color: #fff;
     border-radius: 20px;
     font-size: 18px;
@@ -160,6 +163,40 @@ const MainMenu = styled.ul`
   z-index: 999;
   list-style: none;
   top: 0;
+
+  li {
+    display: block;
+    position: relative;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      a {
+        color: #04b4e0;
+      }
+      
+      span {
+        right: 100%;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    span {
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      color: #fff;
+      padding: 2px 10px;
+      background-color: #04b4e0;
+      white-space: nowrap;
+      right: 0;
+      top: -50%;
+      margin-top: 50%;
+      transition: all .3s ease-in-out;
+      z-index: 0;
+    }
+
+  }
 `
 
 const ChangingLink = styled.a`
@@ -167,8 +204,30 @@ const ChangingLink = styled.a`
   position: relative;
   color: #b5b6b7;
   display: block;
+  font-size: 32px;
 
   &.active {
     color: #04b4e0;
+  }
+`
+
+const LinkText = styled.span`
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  color: #fff;
+  padding: 2px 10px;
+  background-color: $04b4e0;
+  white-space: nowrap;
+  right: 0;
+  top: -50%;
+  margin-top: 50%;
+  transition: all .3s ease-in-out;
+  z-index: 0;
+
+  &:hover {
+    right: 100%;
+    visibility: visible;
+    opacity: 1;
   }
 `
