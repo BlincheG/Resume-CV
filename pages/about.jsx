@@ -51,7 +51,7 @@ function AboutMe() {
         </Grid>
       </div>
       <div>
-        <BlockTitle>Knowledges</BlockTitle>
+        <BlockTitle>Skills</BlockTitle>
         <ul>
           <KnowledgesItems>Javascript</KnowledgesItems>
           <KnowledgesItems>React</KnowledgesItems>
