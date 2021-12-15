@@ -1,19 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 import Grid from '@mui/material/Grid';
+import PageTitle from '../components/PageTitle';
 
 function education() {
   return (
     <EducationWrap>
-      <PageTitle>
-        <h2>Resume</h2>
-      </PageTitle>
+      <PageTitle 
+        main={true}
+        name={"Resume"}
+      />
       <div>
         <Grid container>
           <Grid item xs={12}>
-            <BlockTitle>
-              <h3>Education</h3>
-            </BlockTitle>
+            <PageTitle 
+              main={false}
+              name={"Education"}
+            />
             <TimeLineItem>
               <div className="left-part">
                 <h5>2011 - 2016</h5>
@@ -40,9 +43,10 @@ function education() {
       <div>
         <Grid container>
           <Grid item xs={12}>
-            <BlockTitle>
-              <h3>FORMER EMPLOYERS</h3>
-            </BlockTitle>
+            <PageTitle 
+              main={false}
+              name={"FORMER EMPLOYERS"}
+            />
             <TimeLineItem>
               <div className="left-part">
                 <h5>2018 - 2019</h5>
@@ -114,14 +118,6 @@ const EducationWrap = styled.div`
   @media (max-width: 1024px) {
     border-radius: 0px;
   }
-`
-
-const PageTitle = styled.div`
-  margin-bottom: 30px;
-`
-
-const BlockTitle = styled.div`
-  margin-bottom: 15px;
 `
 
 const TimeLineItem = styled.div`

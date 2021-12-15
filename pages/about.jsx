@@ -1,10 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 import Grid from '@mui/material/Grid';
 import AboutElement from '../components/AboutElement';
+import PageTitle from '../components/PageTitle';
+import SkillsItem from '../components/SkillsItem';
 
 function AboutMe() {
-  const datas = [
+  const datasAboutMe = [
     {
       title: 'Date of birth',
       value: '28.08.1994'
@@ -23,21 +25,24 @@ function AboutMe() {
     },
   ]
 
+  const skills = ['Javascript', 'React', 'Vue', 'Redux', 'VueX', 'Typescript', 'CSS', 'SASS', 'Git', 'HTML', 'Linux', 'npm', 'yarn', 'ES6']
+
   return (
     <AboutWrap>
-      <PageTitle>
-        <h2>About Me</h2>
-      </PageTitle>
+      <PageTitle
+        main={true}
+        name={'About me'}
+      />
       <div>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={7}>
             <p>I am a punctual and motivated individual who is able to work in a busy environment and produce high standards of work. I am an excellent team worker and am able to take instructions from all levels and build up good working relationships with all colleagues. I am flexible, reliable and possess excellent time keeping skills.</p>
           </Grid>
           <Grid item xs={12} sm={5}>
-            <div style={{marginBottom: "100px"}}>
+            <div>
               <ul>
                 {
-                  datas.map((data, index) => (
+                  datasAboutMe.map((data, index) => (
                     <AboutElement 
                       title={ data.title }
                       value={ data.value }
@@ -50,23 +55,21 @@ function AboutMe() {
           </Grid>
         </Grid>
       </div>
+      <div style={{paddingBottom: '50px'}}></div>
       <div>
-        <BlockTitle>Skills</BlockTitle>
+        <PageTitle
+          main={false}
+          name={'Skills'}
+        />
         <ul>
-          <KnowledgesItems>Javascript</KnowledgesItems>
-          <KnowledgesItems>React</KnowledgesItems>
-          <KnowledgesItems>Vue</KnowledgesItems>
-          <KnowledgesItems>Redux</KnowledgesItems>
-          <KnowledgesItems>Typescript</KnowledgesItems>
-          <KnowledgesItems>CSS</KnowledgesItems>
-          <KnowledgesItems>SASS</KnowledgesItems>
-          <KnowledgesItems>Styled Component</KnowledgesItems>
-          <KnowledgesItems>GIT</KnowledgesItems>
-          <KnowledgesItems>HTML</KnowledgesItems>
-          <KnowledgesItems>Firebase</KnowledgesItems>
-          <KnowledgesItems>Linux</KnowledgesItems>
-          <KnowledgesItems>Npm</KnowledgesItems>
-          <KnowledgesItems>Yarn</KnowledgesItems>
+          {
+            skills.map((skill, index) => (
+              <SkillsItem 
+                name={skill}
+                key={index}
+              />
+            ))
+          }
         </ul>
       </div>
     </AboutWrap>
@@ -97,22 +100,4 @@ const AboutWrap = styled.div`
   @media (max-width: 1024px) {
     border-radius: 0px;
   }
-`
-
-const PageTitle = styled.div`
-  margin-bottom: 30px;
-`
-
-const BlockTitle = styled.h3`
-  margin-bottom: 15px;
-`
-const KnowledgesItems = styled.li`
-  display: inline-block;
-  background-color: #04b4e0;
-  border-radius: 3px;
-  color: #fff;
-  padding: 1px 10px;
-  margin: 3px 2px;
-  font-size: 13px;
-  cursor: pointer;
 `

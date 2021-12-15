@@ -4,8 +4,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 
 function MenuToggle(props) {
-  
-
   return (
     <HamburgerIconMenu onClick={props.openMenu}>
       { !props.checkOpenMenu ? 

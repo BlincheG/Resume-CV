@@ -19,11 +19,12 @@ function MainContainer({children}) {
     
     if (width < 1024) {
       setMobileHeader(false);
+      return
     }
   }
 
   useEffect(() => {
-    function handleResize() {
+    const handleResize = () => {
       getWindowDimensions();
     }
 

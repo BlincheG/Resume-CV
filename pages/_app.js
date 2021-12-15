@@ -5,11 +5,12 @@ import Head from 'next/head'
 import { CacheProvider } from '@emotion/react';
 import createEmotionCache from '../styles/createEmotionCache';
 import LoadingScreen from '../components/LoadingScreen';
+import { motion } from 'framer-motion'
 
 const clientSideEmotionCache = createEmotionCache();
 
 function MyApp(props) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const { Component, emotionCache = clientSideEmotionCache, pageProps, router } = props;
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -24,7 +25,23 @@ function MyApp(props) {
       </Head>
         {loading ? (
           <MainContainer>
-            <Component {...pageProps} />
+            <motion.div
+              key={router.route}
+              initial="initial"
+              animate="animate"
+              transition="transitionEnd"
+              style={{ width: '100%', height: '100%' }}
+              variants={{
+                initial: {
+                  opacity: 0,
+                },
+                animate: {
+                  opacity: 1,
+                },
+              }}
+            >
+              <Component {...pageProps} />
+            </motion.div>
           </MainContainer>
         ) : (
           <LoadingScreen />
