@@ -262,6 +262,10 @@ const ChangingLink = styled.a`
   &.active {
     color: #04b4e0;
   }
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
 `
 
 const LinkText = styled.span`

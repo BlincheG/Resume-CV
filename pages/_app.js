@@ -29,8 +29,8 @@ function MyApp(props) {
               key={router.route}
               initial="initial"
               animate="animate"
-              transition="transitionEnd"
               style={{ width: '100%', height: '100%' }}
+              transition={{ duration: 1 }}
               variants={{
                 initial: {
                   opacity: 0,

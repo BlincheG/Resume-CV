@@ -127,6 +127,11 @@ const TimeLineItem = styled.div`
   width: 100%;
   padding-bottom: 15px;
 
+  @media (max-width: 480px) {
+    position: relative;
+    display: block;
+  }
+
   .left-part {
     width: 30%;
     display: table-cell;
@@ -134,6 +139,14 @@ const TimeLineItem = styled.div`
     min-height: 100%;
     text-align: center;
     vertical-align: top;
+
+    @media (max-width: 480px) {
+      width: 100%;
+      display: block;
+      padding-left: 25px;
+      min-height: 100%;
+      text-align: left;
+    }
   }
 
   h5 {
@@ -179,6 +192,10 @@ const TimeLineItem = styled.div`
       solid #04b4e0;
       z-index: 1;
     }
+
+    @media (max-width: 480px) {
+      left: 0;
+    }
   }
 
   .right-part {
@@ -191,6 +208,12 @@ const TimeLineItem = styled.div`
     p {
       font-size: .92em;
       margin-bottom: 10px;
+    }
+
+    @media (max-width: 480px) {
+      width: 100%;
+      display: block;
+      padding-right: 0;
     }
   }
 `
